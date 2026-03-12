@@ -8,7 +8,7 @@
 
 [Discord](https://discord.gg/EcyB3FzJND) · [Twitter/X](https://x.com/xsser_w) · [Landing Page](https://openpua.ai)
 
-**[🇨🇳 中文](README.zh-CN.md)** | **[🇯🇵 日本語](README.ja.md)** | **🇺🇸 English | German**
+**[🇨🇳 中文](README.zh-CN.md)** | **[🇯🇵 日本語](README.ja.md)** | **🇺🇸 English | 🇩🇪 German**
 
 <p align="center">
   <img src="assets/wechat-qr.jpg" alt="WeChat Group QR Code" width="250">
