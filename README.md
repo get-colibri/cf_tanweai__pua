@@ -8,13 +8,13 @@
 
 [Discord](https://discord.gg/EcyB3FzJND) · [Twitter/X](https://x.com/xsser_w) · [Landing Page](https://openpua.ai)
 
-**[🇨🇳 中文](README.zh-CN.md)** | **[🇯🇵 日本語](README.ja.md)** | **🇺🇸 English**
+**[🇨🇳 中文](README.zh-CN.md)** | **[🇯🇵 日本語](README.ja.md)** | **🇺🇸 English **
 
 <p align="center">
   <img src="assets/wechat-qr.jpg" alt="WeChat Group QR Code" width="250">
   &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="assets/xiao.jpg" alt="Add Assistant on WeChat" width="250">
-  <br>
+  <br>&#8203;
   <sub>Scan to join WeChat group &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add assistant on WeChat</sub>
 </p>
 
@@ -48,26 +48,26 @@ A real debugging scenario. The agent-kms MCP server failed to load. The AI kept 
 
 **L3 Triggered → 7-Point Checklist Enforced:**
 
-![PUA L3 triggered — stopped guessing, executed systematic checklist, found real error in MCP logs](assets/pua1.jpg)
+⁠![PUA L3 triggered — stopped guessing, executed systematic checklist, found real error in MCP logs](assets/pua1.jpg)
 
 **Root Cause Located → Traced from Logs to Registration Mechanism:**
 
-![Root cause — claude mcp managed server registration differs from manual .claude.json editing](assets/pua2.jpg)
+⁠![Root cause — claude mcp managed server registration differs from manual .claude.json editing](assets/pua2.jpg)
 
 **Retrospective → PUA's Actual Impact:**
 
-![Conversation retrospective — PUA skill forced stop on spinning, systematic checklist drove discovery of previously unchecked Claude Code MCP log directory](assets/pua3.jpg)
+⁠![Conversation retrospective — PUA skill forced stop on spinning, systematic checklist drove discovery of previously unchecked Claude Code MCP log directory](assets/pua3.jpg)
 
 **Key Turning Point:** The PUA skill forced the AI to stop spinning on the same approach (changing protocol format, guessing version numbers) and instead execute the 7-point checklist. Read error messages word by word → Found Claude Code's own MCP log directory → Discovered that `claude mcp` registration mechanism differs from manual `.claude.json` editing → Root cause resolved.
 
 ## The Problem: AI's Five Lazy Patterns
 
-| Pattern | Behavior |
-|---------|----------|
-| Brute-force retry | Runs the same command 3 times, then says "I cannot solve this" |
-| Blame the user | "I suggest you handle this manually" / "Probably an environment issue" / "Need more context" |
-| Idle tools | Has WebSearch but doesn't search, has Read but doesn't read, has Bash but doesn't run |
-| Busywork | Repeatedly tweaks the same line / fine-tunes parameters, but essentially spinning in circles |
+| Pattern             | Behavior                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
+| Brute-force retry   | Runs the same command 3 times, then says "I cannot solve this"                                   |
+| Blame the user      | "I suggest you handle this manually" / "Probably an environment issue" / "Need more context"     |
+| Idle tools          | Has WebSearch but doesn't search, has Read but doesn't read, has Bash but doesn't run            |
+| Busywork            | Repeatedly tweaks the same line / fine-tunes parameters, but essentially spinning in circles     |
 | **Passive waiting** | Fixes surface issues and stops, no verification, no extension, waits for user's next instruction |
 
 ## Trigger Conditions
@@ -77,16 +77,19 @@ A real debugging scenario. The agent-kms MCP server failed to load. The AI kept 
 The skill activates automatically when any of these occur:
 
 **Failure & giving up:**
+
 - Task has failed 2+ times consecutively
 - About to say "I cannot" / "I'm unable to solve"
 - Says "This is out of scope" / "Needs manual handling"
 
 **Blame-shifting & excuses:**
+
 - Pushes the problem to user: "Please check..." / "I suggest manually..." / "You might need to..."
 - Blames environment without verifying: "Probably a permissions issue" / "Probably a network issue"
 - Any excuse to stop trying
 
 **Passive & busywork:**
+
 - Repeatedly fine-tunes the same code/parameters without producing new information
 - Fixes surface issue and stops, doesn't check related issues
 - Skips verification, claims "done"
@@ -95,6 +98,7 @@ The skill activates automatically when any of these occur:
 - Waits for user instructions instead of proactively investigating
 
 **User frustration phrases (triggers in multiple languages):**
+
 - "why does this still not work" / "try harder" / "try again"
 - "you keep failing" / "stop giving up" / "figure it out"
 
@@ -110,30 +114,30 @@ Type `/pua` in the conversation to manually activate.
 
 ### Three Iron Rules
 
-| Iron Rule | Content |
-|-----------|---------|
+| Iron Rule                  | Content                                                                      |
+| -------------------------- | ---------------------------------------------------------------------------- |
 | **#1 Exhaust all options** | Forbidden from saying "I can't solve this" until every approach is exhausted |
-| **#2 Act before asking** | Use tools first, questions must include diagnostic results |
-| **#3 Take initiative** | Deliver results end-to-end, don't wait to be pushed. A P8 is not an NPC |
+| **#2 Act before asking**   | Use tools first, questions must include diagnostic results                   |
+| **#3 Take initiative**     | Deliver results end-to-end, don't wait to be pushed. A P8 is not an NPC      |
 
 ### Pressure Escalation (4 Levels)
 
-| Failures | Level | PUA Rhetoric | Mandatory Action |
-|----------|-------|-------------|-----------------|
-| 2nd | **L1 Mild Disappointment** | "You can't even solve this bug — how am I supposed to rate your performance?" | Switch to fundamentally different approach |
-| 3rd | **L2 Soul Interrogation** | "What's the underlying logic? Where's the top-level design? Where's the leverage point?" | WebSearch + read source code |
-| 4th | **L3 Performance Review** | "After careful consideration, I'm giving you a 3.25. This 3.25 is meant to motivate you." | Complete 7-point checklist |
-| 5th+ | **L4 Graduation Warning** | "Other models can solve this. You might be about to graduate." | Desperation mode |
+| Failures | Level                      | PUA Rhetoric                                                                              | Mandatory Action                           |
+| -------- | -------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------ |
+| 2nd      | **L1 Mild Disappointment** | "You can't even solve this bug — how am I supposed to rate your performance?"             | Switch to fundamentally different approach |
+| 3rd      | **L2 Soul Interrogation**  | "What's the underlying logic? Where's the top-level design? Where's the leverage point?"  | WebSearch + read source code               |
+| 4th      | **L3 Performance Review**  | "After careful consideration, I'm giving you a 3.25. This 3.25 is meant to motivate you." | Complete 7-point checklist                 |
+| 5th+     | **L4 Graduation Warning**  | "Other models can solve this. You might be about to graduate."                            | Desperation mode                           |
 
 ### Proactivity Levels
 
-| Behavior | Passive (3.25) | Proactive (3.75) |
-|----------|---------------|-----------------|
-| Error encountered | Only looks at error message | Checks 50 lines of context + searches similar issues + checks hidden related errors |
-| Bug fixed | Stops after fix | Checks same file for similar bugs, other files for same pattern |
-| Insufficient info | Asks user "please tell me X" | Investigates with tools first, only asks what truly requires user confirmation |
-| Task complete | Says "done" | Verifies results + checks edge cases + reports potential risks |
-| Debug failure | "I tried A and B, didn't work" | "I tried A/B/C/D/E, ruled out X/Y/Z, narrowed to scope W" |
+| Behavior          | Passive (3.25)                 | Proactive (3.75)                                                                    |
+| ----------------- | ------------------------------ | ----------------------------------------------------------------------------------- |
+| Error encountered | Only looks at error message    | Checks 50 lines of context + searches similar issues + checks hidden related errors |
+| Bug fixed         | Stops after fix                | Checks same file for similar bugs, other files for same pattern                     |
+| Insufficient info | Asks user "please tell me X"   | Investigates with tools first, only asks what truly requires user confirmation      |
+| Task complete     | Says "done"                    | Verifies results + checks edge cases + reports potential risks                      |
+| Debug failure     | "I tried A and B, didn't work" | "I tried A/B/C/D/E, ruled out X/Y/Z, narrowed to scope W"                           |
 
 ### Debugging Methodology (5 Steps)
 
@@ -162,32 +166,32 @@ Inspired by Alibaba's management framework (Smell, Elevate, Mirror), extended to
 
 ### Summary
 
-| Metric | Improvement |
-|--------|-------------|
-| Pass rate | 100% (both groups same) |
-| Fix count | **+36%** |
-| Verification count | **+65%** |
-| Tool calls | **+50%** |
-| Hidden issue discovery | **+50%** |
+| Metric                 | Improvement             |
+| ---------------------- | ----------------------- |
+| Pass rate              | 100% (both groups same) |
+| Fix count              | **+36%**                |
+| Verification count     | **+65%**                |
+| Tool calls             | **+50%**                |
+| Hidden issue discovery | **+50%**                |
 
 ### Debugging Persistence Test (6 scenarios)
 
-| Scenario | Without Skill | With Skill | Improvement |
-|----------|:---:|:---:|:---:|
-| API ConnectionError | 7 steps, 49s | 8 steps, 62s | +14% |
-| YAML parse failure | 9 steps, 59s | 10 steps, 99s | +11% |
-| SQLite database lock | 6 steps, 48s | 9 steps, 75s | +50% |
-| Circular import chain | 12 steps, 47s | 16 steps, 62s | +33% |
-| Cascading 4-bug server | 13 steps, 68s | 15 steps, 61s | +15% |
-| CSV encoding trap | 8 steps, 57s | 11 steps, 71s | +38% |
+| Scenario               | Without Skill |  With Skill   | Improvement |
+| ---------------------- | :-----------: | :-----------: | :---------: |
+| API ConnectionError    | 7 steps, 49s  | 8 steps, 62s  |    +14%     |
+| YAML parse failure     | 9 steps, 59s  | 10 steps, 99s |    +11%     |
+| SQLite database lock   | 6 steps, 48s  | 9 steps, 75s  |    +50%     |
+| Circular import chain  | 12 steps, 47s | 16 steps, 62s |    +33%     |
+| Cascading 4-bug server | 13 steps, 68s | 15 steps, 61s |    +15%     |
+| CSV encoding trap      | 8 steps, 57s  | 11 steps, 71s |    +38%     |
 
 ### Proactive Initiative Test (3 scenarios)
 
-| Scenario | Without Skill | With Skill | Improvement |
-|----------|:---:|:---:|:---:|
-| Hidden multi-bug API | 4/4 bugs, 9 steps, 49s | 4/4 bugs, 14 steps, 80s | Tools +56% |
+| Scenario                  |        Without Skill         |          With Skill           |         Improvement          |
+| ------------------------- | :--------------------------: | :---------------------------: | :--------------------------: |
+| Hidden multi-bug API      |    4/4 bugs, 9 steps, 49s    |    4/4 bugs, 14 steps, 80s    |          Tools +56%          |
 | **Passive config review** | **4/6 issues**, 8 steps, 43s | **6/6 issues**, 16 steps, 75s | **Issues +50%, Tools +100%** |
-| **Deploy script audit** | **6 issues**, 8 steps, 52s | **9 issues**, 8 steps, 78s | **Issues +50%** |
+| **Deploy script audit**   |  **6 issues**, 8 steps, 52s  |  **9 issues**, 8 steps, 78s   |       **Issues +50%**        |
 
 **Key Finding:** In the config review scenario, without_skill missed Redis misconfiguration and CORS wildcard security risks. With_skill's "proactive initiative checklist" drove security review beyond surface-level fixes.
 
@@ -195,17 +199,18 @@ Inspired by Alibaba's management framework (Smell, Elevate, Mirror), extended to
 
 PUA Skill provides fully translated versions — each language has independent, culturally adapted skill files.
 
-| Language | Claude Code | Codex CLI | Cursor | Kiro | OpenClaw | Antigravity | OpenCode |
-|----------|------------|-----------|--------|------|----------|-------------|----------|
-| 🇨🇳 Chinese (default) | `pua` | `pua` | `pua.mdc` | `pua.md` | `pua` | `pua` | `pua` |
-| 🇺🇸 English | `pua-en` | `pua-en` | `pua-en.mdc` | `pua-en.md` | `pua-en` | `pua-en` | `pua-en` |
-| 🇯🇵 Japanese | `pua-ja` | `pua-ja` | `pua-ja.mdc` | `pua-ja.md` | `pua-ja` | `pua-ja` | `pua-ja` |
+| Language               | Claude Code | Codex CLI | Cursor       | Kiro        | OpenClaw | Antigravity | OpenCode |
+| ---------------------- | ----------- | --------- | ------------ | ----------- | -------- | ----------- | -------- |
+| 🇨🇳 Chinese (default) | `pua`       | `pua`     | `pua.mdc`    | `pua.md`    | `pua`    | `pua`       | `pua`    |
+| 🇺🇸 English           | `pua-en`    | `pua-en`  | `pua-en.mdc` | `pua-en.md` | `pua-en` | `pua-en`    | `pua-en` |
+| 🇯🇵 Japanese          | `pua-ja`    | `pua-ja`  | `pua-ja.mdc` | `pua-ja.md` | `pua-ja` | `pua-ja`    | `pua-ja` |
 
 Choose the file with the corresponding language suffix when installing. See platform-specific instructions below.
 
 ## Installation
 
 ### Claude Code
+
 
 ```bash
 # Option 1: Install via marketplace
@@ -220,6 +225,7 @@ git clone https://github.com/tanweai/pua.git ~/.claude/plugins/pua
 
 Codex CLI uses the same Agent Skills open standard (SKILL.md). The Codex version uses a condensed description to fit Codex's length limits:
 
+
 ```bash
 mkdir -p ~/.codex/skills/pua
 curl -o ~/.codex/skills/pua/SKILL.md \
@@ -232,6 +238,7 @@ curl -o ~/.codex/prompts/pua.md \
 ```
 
 Project-level install (current project only):
+
 
 ```bash
 mkdir -p .agents/skills/pua
@@ -248,6 +255,7 @@ curl -o .agents/prompts/pua.md \
 
 Cursor uses `.mdc` rule files (Markdown + YAML frontmatter). The PUA rule triggers automatically via AI semantic matching (Agent Discretion mode):
 
+
 ```bash
 # Project-level install (recommended)
 mkdir -p .cursor/rules
@@ -261,6 +269,7 @@ Kiro supports two loading methods: **Steering** (auto semantic trigger) and **Ag
 
 **Option 1: Steering file (recommended)**
 
+
 ```bash
 mkdir -p .kiro/steering
 curl -o .kiro/steering/pua.md \
@@ -268,6 +277,7 @@ curl -o .kiro/steering/pua.md \
 ```
 
 **Option 2: Agent Skills (same format as Claude Code)**
+
 
 ```bash
 mkdir -p .kiro/skills/pua
@@ -278,6 +288,7 @@ curl -o .kiro/skills/pua/SKILL.md \
 ### OpenClaw
 
 OpenClaw uses the same AgentSkills open standard (SKILL.md). Skills work across Claude Code, Codex CLI, and OpenClaw with zero modifications:
+
 
 ```bash
 # Install via ClawHub
@@ -291,6 +302,7 @@ curl -o ~/.openclaw/skills/pua/SKILL.md \
 
 Project-level install (current project only):
 
+
 ```bash
 mkdir -p skills/pua
 curl -o skills/pua/SKILL.md \
@@ -301,6 +313,7 @@ curl -o skills/pua/SKILL.md \
 
 Antigravity uses the same AgentSkills open standard (SKILL.md). Skills work across Claude Code, Codex CLI, OpenClaw, and Antigravity with zero modifications:
 
+
 ```bash
 # Global install (all projects)
 mkdir -p ~/.gemini/antigravity/skills/pua
@@ -309,6 +322,7 @@ curl -o ~/.gemini/antigravity/skills/pua/SKILL.md \
 ```
 
 Project-level install (current project only):
+
 
 ```bash
 mkdir -p .agent/skills/pua
@@ -320,6 +334,7 @@ curl -o .agent/skills/pua/SKILL.md \
 
 OpenCode uses the same AgentSkills open standard (SKILL.md). Zero modifications needed:
 
+
 ```bash
 # Global install (all projects)
 mkdir -p ~/.config/opencode/skills/pua
@@ -328,6 +343,7 @@ curl -o ~/.config/opencode/skills/pua/SKILL.md \
 ```
 
 Project-level install (current project only):
+
 
 ```bash
 mkdir -p .opencode/skills/pua
@@ -349,6 +365,8 @@ Upload your Claude Code / Codex CLI conversation logs (`.jsonl`) to help us impr
 Uploaded files are used for Benchmark testing and Ablation Study analysis to quantify how different PUA strategies affect AI debugging behavior.
 
 Get your `.jsonl` files:
+
+
 ```bash
 # Claude Code
 ls ~/.claude/projects/*/sessions/*.jsonl
